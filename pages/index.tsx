@@ -18,9 +18,9 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         <meta name='description' content='A demo react-redux website'></meta>
       </Head>
 
-      <div>
-        <h1>Welcome to my react-redux website!</h1>
-        <div className={styles.thisDiv}>{name}</div>
+      <div className='m-3'>
+        <h1 className='ml-5 text-xl'>Welcome to my react-redux website!</h1>
+        <div className={`${styles.thisDiv} mt-5`}>{name}</div>
       </div>
     </>
   )

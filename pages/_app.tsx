@@ -3,6 +3,8 @@ import Head from 'next/head'
 
 import { AppProps } from 'next/app'
 
+import './tailwind.scss'
+
 //  import a root level SCSS file
 import './_app.scss'
 
