@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true, //  my project is meant to run in the browser
     es2021: true,
+    node: true, //  specifying this prevents an error for "module" on the first line of this file
   },
 
   extends: [

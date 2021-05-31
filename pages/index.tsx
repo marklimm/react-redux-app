@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
-// import styles from './index.module.scss'
+import styles from './index.module.scss'
 
 interface HomePageProps {
   name: string
@@ -17,10 +17,10 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         <title>React-redux demo website</title>
         <meta name='description' content='A demo react-redux website'></meta>
       </Head>
-      {/* className={styles.descriptionArea} */}
+
       <div>
-        <h1>Welcome!</h1>
-        <div>{name}</div>
+        <h1>Welcome to my react-redux website!</h1>
+        <div className={styles.thisDiv}>{name}</div>
       </div>
     </>
   )

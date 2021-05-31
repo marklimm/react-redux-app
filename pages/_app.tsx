@@ -3,6 +3,9 @@ import Head from 'next/head'
 
 import { AppProps } from 'next/app'
 
+//  import a root level SCSS file
+import './_app.scss'
+
 const MyApp: FunctionComponent<AppProps> = ({
   Component,
   pageProps,
