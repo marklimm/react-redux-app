@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import { useDispatch } from 'react-redux'
 
-import { sellBurger, sellPizza, sellTaco } from 'redux/FoodStandReducer'
+import { sellBurger, sellHotDog, sellFries } from 'redux/FoodStandReducer'
 
 import styles from 'pages/index.module.scss'
 
@@ -18,12 +18,12 @@ export const Consumer: FunctionComponent = () => {
     dispatch(sellBurger())
   }
 
-  const sellPizzaClicked = () => {
-    dispatch(sellPizza())
+  const sellHotDogClicked = () => {
+    dispatch(sellHotDog())
   }
 
-  const sellTacoClicked = () => {
-    dispatch(sellTaco())
+  const sellFriesClicked = () => {
+    dispatch(sellFries())
   }
 
   return (
@@ -42,17 +42,17 @@ export const Consumer: FunctionComponent = () => {
         <div className='mt-3'>
           <button
             className={`${styles.actionButton}`}
-            onClick={sellPizzaClicked}
+            onClick={sellHotDogClicked}
           >
-            Buy Pizza
+            Buy Hot Dog
           </button>
         </div>
         <div className='mt-3'>
           <button
             className={`${styles.actionButton}`}
-            onClick={sellTacoClicked}
+            onClick={sellFriesClicked}
           >
-            Buy Taco
+            Buy Fries
           </button>
         </div>
       </div>

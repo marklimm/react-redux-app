@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react'
-import Image from 'next/image'
 import { useSelector } from 'react-redux'
 
 import { FoodStandState } from 'redux/FoodStandReducer'
 
 import { Burger } from 'components/food/Burger'
-import { Fries } from 'components/food/Fries'
 import { HotDog } from 'components/food/HotDog'
+import { Fries } from 'components/food/Fries'
 
 /**
  * This FoodStand component lists the items currently available at the food stand
@@ -14,24 +13,39 @@ import { HotDog } from 'components/food/HotDog'
  */
 export const FoodStand: FunctionComponent = () => {
   const numBurgers = useSelector<FoodStandState>((state) => state.burgers)
-  const numPizzas = useSelector<FoodStandState>((state) => state.pizzas)
-  const numTacos = useSelector<FoodStandState>((state) => state.tacos)
+  const numHotDogs = useSelector<FoodStandState>((state) => state.hotdogs)
+  const numFries = useSelector<FoodStandState>((state) => state.fries)
 
   return (
     <div className=''>
       <h1 className=' text-lg'>Welcome to the Food Stand!</h1>
 
       <div className=''>
+        <div className='flex flex-wrap'>
+          {Array.from(Array(numBurgers), (_, i) => (
+            <Burger key={i}></Burger>
+          ))}
+        </div>
+
+        <div className='flex flex-wrap'>
+          {Array.from(Array(numHotDogs), (_, i) => (
+            <HotDog key={i}></HotDog>
+          ))}
+        </div>
+
+        <div className='flex flex-wrap'>
+          {Array.from(Array(numFries), (_, i) => (
+            <Fries key={i}></Fries>
+          ))}
+        </div>
+
+        <h2 className='text-lg font-bold mt-5'>Summary:</h2>
         <div>There are {numBurgers} burger(s) for sale</div>
 
-        <div>There are {numPizzas} pizza(s) for sale</div>
+        <div>There are {numHotDogs} hot dog(s) for sale</div>
 
-        <div>There are {numTacos} taco(s) for sale</div>
+        <div>There are {numFries} fry/frie(s) for sale</div>
       </div>
-
-      <HotDog />
-      <Burger />
-      <Fries />
     </div>
   )
 }

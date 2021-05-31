@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
-import { makeBurger, makePizza, makeTaco } from 'redux/FoodStandReducer'
+import { makeBurger, makeHotDog, makeFries } from 'redux/FoodStandReducer'
 
 import styles from 'pages/index.module.scss'
 
@@ -16,12 +16,12 @@ export const Producer: FunctionComponent = () => {
     dispatch(makeBurger())
   }
 
-  const makePizzaClicked = () => {
-    dispatch(makePizza())
+  const makeHotDogClicked = () => {
+    dispatch(makeHotDog())
   }
 
-  const makeTacoClicked = () => {
-    dispatch(makeTaco())
+  const makeFriesClicked = () => {
+    dispatch(makeFries())
   }
 
   return (
@@ -35,11 +35,14 @@ export const Producer: FunctionComponent = () => {
         >
           Make Burger
         </button>
-        <button className={`${styles.actionButton}`} onClick={makePizzaClicked}>
-          Make Pizza
+        <button
+          className={`${styles.actionButton}`}
+          onClick={makeHotDogClicked}
+        >
+          Make Hot Dog
         </button>
-        <button className={`${styles.actionButton}`} onClick={makeTacoClicked}>
-          Make Taco
+        <button className={`${styles.actionButton}`} onClick={makeFriesClicked}>
+          Make Fries
         </button>
       </div>
 

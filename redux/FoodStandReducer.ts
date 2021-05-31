@@ -5,23 +5,23 @@ import { createAction, createReducer } from '@reduxjs/toolkit'
  */
 export interface FoodStandState {
   burgers: number
-  pizzas: number
-  tacos: number
+  hotdogs: number
+  fries: number
 }
 
 const initialState: FoodStandState = {
-  burgers: 0,
-  pizzas: 0,
-  tacos: 0,
+  burgers: 2,
+  hotdogs: 4,
+  fries: 7,
 }
 
 export const makeBurger = createAction('produce/burger')
-export const makePizza = createAction('produce/pizza')
-export const makeTaco = createAction('produce/taco')
+export const makeHotDog = createAction('produce/hotdog')
+export const makeFries = createAction('produce/fries')
 
 export const sellBurger = createAction('consume/burger')
-export const sellPizza = createAction('consume/pizza')
-export const sellTaco = createAction('consume/taco')
+export const sellHotDog = createAction('consume/hotdog')
+export const sellFries = createAction('consume/fries')
 
 export const FoodStandReducer = createReducer(initialState, (builder) => {
   builder
@@ -32,19 +32,19 @@ export const FoodStandReducer = createReducer(initialState, (builder) => {
 
       state.burgers += 1
     })
-    .addCase(makePizza, (state) => {
-      if (state.pizzas === 10) {
+    .addCase(makeHotDog, (state) => {
+      if (state.hotdogs === 10) {
         return
       }
 
-      state.pizzas += 1
+      state.hotdogs += 1
     })
-    .addCase(makeTaco, (state) => {
-      if (state.tacos === 10) {
+    .addCase(makeFries, (state) => {
+      if (state.fries === 10) {
         return
       }
 
-      state.tacos += 1
+      state.fries += 1
     })
     .addCase(sellBurger, (state) => {
       if (state.burgers === 0) {
@@ -53,18 +53,18 @@ export const FoodStandReducer = createReducer(initialState, (builder) => {
 
       state.burgers -= 1
     })
-    .addCase(sellPizza, (state) => {
-      if (state.pizzas === 0) {
+    .addCase(sellHotDog, (state) => {
+      if (state.hotdogs === 0) {
         return
       }
 
-      state.pizzas -= 1
+      state.hotdogs -= 1
     })
-    .addCase(sellTaco, (state) => {
-      if (state.tacos === 0) {
+    .addCase(sellFries, (state) => {
+      if (state.fries === 0) {
         return
       }
 
-      state.tacos -= 1
+      state.fries -= 1
     })
 })

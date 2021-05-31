@@ -36,19 +36,16 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         </div>
 
         <div className='flex justify-center'>
-          <div
-            className='grid grid-cols-12 gap-14 m-8 p-6 rounded-md bg-white'
-            style={{ maxWidth: '1200px' }}
-          >
+          <div className='flex m-8 p-6 rounded-md bg-white' style={{}}>
             {/* use the <Provider /> HOC to allow the Producer, FoodStand and Consumer access to the redux FoodStandStore */}
             <Provider store={FoodStandStore}>
-              <div className='col-span-3'>
+              <div className='pr-4'>
                 <Producer />
               </div>
-              <div className='col-span-6'>
+              <div style={{ width: '650px' }}>
                 <FoodStand />
               </div>
-              <div className='col-span-3'>
+              <div className='pl-4'>
                 <Consumer />
               </div>
             </Provider>
