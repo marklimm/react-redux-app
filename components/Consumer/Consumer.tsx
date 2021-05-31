@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 
 import { sellBurger, sellPizza, sellTaco } from 'redux/FoodStandReducer'
 
+import styles from 'pages/index.module.scss'
+
 /**
  * This consumer component buys food items from the <FoodStand />
  * @returns
@@ -30,13 +32,28 @@ export const Consumer: FunctionComponent = () => {
 
       <div className='mb-8'>
         <div className='mt-3'>
-          <button onClick={sellBurgerClicked}>Buy Burger</button>
+          <button
+            className={`${styles.actionButton}`}
+            onClick={sellBurgerClicked}
+          >
+            Buy Burger
+          </button>
         </div>
         <div className='mt-3'>
-          <button onClick={sellPizzaClicked}>Buy Pizza</button>
+          <button
+            className={`${styles.actionButton}`}
+            onClick={sellPizzaClicked}
+          >
+            Buy Pizza
+          </button>
         </div>
         <div className='mt-3'>
-          <button onClick={sellTacoClicked}>Buy Taco</button>
+          <button
+            className={`${styles.actionButton}`}
+            onClick={sellTacoClicked}
+          >
+            Buy Taco
+          </button>
         </div>
       </div>
 

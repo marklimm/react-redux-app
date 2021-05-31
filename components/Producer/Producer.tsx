@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { makeBurger, makePizza, makeTaco } from 'redux/FoodStandReducer'
 
+import styles from 'pages/index.module.scss'
+
 /**
  * This Producer component adds food items to the <FoodStand />
  * @returns
@@ -27,15 +29,18 @@ export const Producer: FunctionComponent = () => {
       <h1 className=' text-lg'>Preston Producer</h1>
 
       <div className='mb-8'>
-        <div className='mt-3'>
-          <button onClick={makeBurgerClicked}>Make Burger</button>
-        </div>
-        <div className='mt-3'>
-          <button onClick={makePizzaClicked}>Make Pizza</button>
-        </div>
-        <div className='mt-3'>
-          <button onClick={makeTacoClicked}>Make Taco</button>
-        </div>
+        <button
+          className={`${styles.actionButton}`}
+          onClick={makeBurgerClicked}
+        >
+          Make Burger
+        </button>
+        <button className={`${styles.actionButton}`} onClick={makePizzaClicked}>
+          Make Pizza
+        </button>
+        <button className={`${styles.actionButton}`} onClick={makeTacoClicked}>
+          Make Taco
+        </button>
       </div>
 
       <Image

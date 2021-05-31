@@ -1,5 +1,4 @@
 
-
-.thisDiv {
-  // background-color: #d4d4d4;
+.actionButton {
+  @apply block mt-5 bg-green-600 focus:outline-none p-2 rounded-md text-sm text-white hover:text-green-200
 }

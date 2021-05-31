@@ -1,7 +1,12 @@
 import React, { FunctionComponent } from 'react'
+import Image from 'next/image'
 import { useSelector } from 'react-redux'
 
 import { FoodStandState } from 'redux/FoodStandReducer'
+
+import { Burger } from 'components/food/Burger'
+import { Fries } from 'components/food/Fries'
+import { HotDog } from 'components/food/HotDog'
 
 /**
  * This FoodStand component lists the items currently available at the food stand
@@ -23,6 +28,10 @@ export const FoodStand: FunctionComponent = () => {
 
         <div>There are {numTacos} taco(s) for sale</div>
       </div>
+
+      <HotDog />
+      <Burger />
+      <Fries />
     </div>
   )
 }
