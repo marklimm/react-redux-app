@@ -4,11 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "eslint": "./node_modules/.bin/eslint \"*/**/*.{js,ts,tsx}\" --fix",
+    "lint": "npm run eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.27.0"
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "^2.3.0"
+  },
+  "devDependenciesComments": {
+    "eslint": "code linting",
+    "eslint-config-prettier": "disable the rules that interfere with prettier",
+    "eslint-plugin-prettier": "run prettier as an eslint rule.  See https://github.com/prettier/eslint-plugin-prettier#recommended-configuration for reference",
+    "eslint-plugin-react": "added by `eslint --init` when I said my project uses react",
+    "prettier": "opinionated code formatting"
   }
 }
