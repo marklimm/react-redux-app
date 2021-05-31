@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-// import Image from 'next/image'
+import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { makeBurger, makePizza, makeTaco } from 'redux/FoodStandReducer'
 
@@ -26,7 +26,7 @@ export const Producer: FunctionComponent = () => {
     <div className=''>
       <h1 className=' text-lg'>Preston Producer</h1>
 
-      <div className=''>
+      <div className='mb-8'>
         <div className='mt-3'>
           <button onClick={makeBurgerClicked}>Make Burger</button>
         </div>
@@ -37,6 +37,13 @@ export const Producer: FunctionComponent = () => {
           <button onClick={makeTacoClicked}>Make Taco</button>
         </div>
       </div>
+
+      <Image
+        src={`/images/preston.png`}
+        alt={`Preston Producer`}
+        width={163}
+        height={312}
+      />
     </div>
   )
 }

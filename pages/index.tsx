@@ -35,19 +35,24 @@ const HomePage: FunctionComponent<HomePageProps> = ({
           </Link>
         </div>
 
-        <div className='grid grid-cols-12 mt-8'>
-          {/* use the <Provider /> HOC to allow the Producer, FoodStand and Consumer access to the redux FoodStandStore */}
-          <Provider store={FoodStandStore}>
-            <div className='col-span-2'>
-              <Producer />
-            </div>
-            <div className='col-span-8'>
-              <FoodStand />
-            </div>
-            <div className='col-span-2'>
-              <Consumer />
-            </div>
-          </Provider>
+        <div className='flex justify-center'>
+          <div
+            className='grid grid-cols-12 gap-14 m-8'
+            style={{ maxWidth: '1200px' }}
+          >
+            {/* use the <Provider /> HOC to allow the Producer, FoodStand and Consumer access to the redux FoodStandStore */}
+            <Provider store={FoodStandStore}>
+              <div className='col-span-3'>
+                <Producer />
+              </div>
+              <div className='col-span-6'>
+                <FoodStand />
+              </div>
+              <div className='col-span-3'>
+                <Consumer />
+              </div>
+            </Provider>
+          </div>
         </div>
       </div>
     </>

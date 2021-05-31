@@ -1,5 +1,8 @@
 import React, { FunctionComponent } from 'react'
+import Image from 'next/image'
+
 import { useDispatch } from 'react-redux'
+
 import { sellBurger, sellPizza, sellTaco } from 'redux/FoodStandReducer'
 
 /**
@@ -25,7 +28,7 @@ export const Consumer: FunctionComponent = () => {
     <div className=''>
       <h1 className=' text-lg'>Courtney Consumer</h1>
 
-      <div className=''>
+      <div className='mb-8'>
         <div className='mt-3'>
           <button onClick={sellBurgerClicked}>Buy Burger</button>
         </div>
@@ -36,6 +39,13 @@ export const Consumer: FunctionComponent = () => {
           <button onClick={sellTacoClicked}>Buy Taco</button>
         </div>
       </div>
+
+      <Image
+        src={`/images/courtney.png`}
+        alt={`Courtney Consumer`}
+        width={155}
+        height={308}
+      />
     </div>
   )
 }
