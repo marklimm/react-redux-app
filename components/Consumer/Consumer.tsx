@@ -28,7 +28,7 @@ export const Consumer: FunctionComponent = () => {
 
   return (
     <div className=''>
-      <h1 className=' text-lg'>Courtney Consumer</h1>
+      <h1 className='text-lg font-bold'>Courtney Consumer</h1>
 
       <div className='mb-8'>
         <div className='mt-3'>

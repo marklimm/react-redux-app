@@ -26,7 +26,7 @@ export const Producer: FunctionComponent = () => {
 
   return (
     <div className=''>
-      <h1 className=' text-lg'>Preston Producer</h1>
+      <h1 className='text-lg font-bold'>Preston Producer</h1>
 
       <div className='mb-8'>
         <button
