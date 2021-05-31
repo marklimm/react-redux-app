@@ -18,7 +18,11 @@ const MyApp: FunctionComponent<AppProps> = ({
         <title>react-redux demo website</title>
       </Head>
       <div className=''>
-        <Component {...pageProps} />
+        <h1 className='p-5 text-xl'>Welcome to my react-redux website!</h1>
+
+        <div className='m-3'>
+          <Component {...pageProps} />
+        </div>
       </div>
     </>
   )

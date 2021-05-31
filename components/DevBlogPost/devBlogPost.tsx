@@ -18,7 +18,7 @@ export const DevBlogPost: FunctionComponent<DevBlogPostProps> = ({
         <DisplayDate dateString={devBlogPost.date} />
       </div>
 
-      <div className='markdownContent mt-1 text-gray-700'>
+      <div className='markdownContent mt-1'>
         <div dangerouslySetInnerHTML={{ __html: devBlogPost.contentHtml }} />
       </div>
     </div>

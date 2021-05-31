@@ -1,9 +1,9 @@
 body {
-  color: #2a3132;
-  background-color: #e9e9e9;
+  color: #217463;
+  background-color: #f0faf4;
 
   a {
-    @apply text-blue-600 hover:text-indigo-700;
+    @apply text-blue-500 hover:text-blue-800
   }
 
   //  CSS styles for the markdown file content that has been converted into html

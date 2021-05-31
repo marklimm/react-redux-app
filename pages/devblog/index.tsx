@@ -25,20 +25,22 @@ const DevBlog: FunctionComponent<DevBlogProps> = ({
         ></meta>
       </Head>
 
-      <div className='grid grid-cols-3 gap-4 items-start'>
+      <div className=''>
         <div className='col-span-2'>
-          <h1>Developer Blog</h1>
+          <h1 className='text-xl'>Developer Blog</h1>
 
           <Link href='/'>
             <a>Home</a>
           </Link>
 
-          {devBlogPosts.length > 0 &&
-            devBlogPosts.map((post) => (
-              <div key={post.id} className='mb-8'>
-                <DevBlogPost devBlogPost={post} />
-              </div>
-            ))}
+          <div className=' mt-8'>
+            {devBlogPosts.length > 0 &&
+              devBlogPosts.map((post) => (
+                <div key={post.id} className='mb-8'>
+                  <DevBlogPost devBlogPost={post} />
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </>

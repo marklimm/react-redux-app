@@ -19,12 +19,10 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         <meta name='description' content='A demo react-redux website'></meta>
       </Head>
 
-      <div className='m-3'>
-        <h1 className='ml-5 text-xl'>Welcome to my react-redux website!</h1>
-        <div className={`${styles.thisDiv} mt-5`}>
+      <div className=''>
+        <div className={`${styles.thisDiv}`}>
           {name}
 
-          <br />
           <Link href='/devblog'>
             <a className={styles.link}>Developer Blog</a>
           </Link>
@@ -37,7 +35,7 @@ const HomePage: FunctionComponent<HomePageProps> = ({
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      name: 'stuff',
+      name: 'Welcome to my react-redux website!  ',
     },
   }
 }
