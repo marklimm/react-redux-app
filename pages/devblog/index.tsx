@@ -33,10 +33,10 @@ const DevBlog: FunctionComponent<DevBlogProps> = ({
             <a>Home</a>
           </Link>
 
-          <div className=' mt-8'>
+          <div className='mt-8 flex justify-center'>
             {devBlogPosts.length > 0 &&
               devBlogPosts.map((post) => (
-                <div key={post.id} className='mb-8'>
+                <div key={post.id} className='lg:w-3/4 xl:w-2/3 2xl:w-1/2'>
                   <DevBlogPost devBlogPost={post} />
                 </div>
               ))}
