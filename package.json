@@ -54,21 +54,27 @@
     "typescript": "types for javascript"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@types/react-redux": "^7.1.16",
     "date-fns": "^2.22.1",
     "gray-matter": "^4.0.3",
     "next": "^10.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "sass": "^1.34.0"
   },
   "dependenciesComments": {
+    "@reduxjs/toolkit": "provides convenience methods for redux (createAction, configureStore, etc.)",
+    "@types/react-redux": "types for react redux",
     "date-fns": "JS date library",
     "gray-matter": "parsing the front matter of markdown files",
     "next": "SSG react web framework",
     "react": "javascript HTML rendering library",
     "react-dom": "connect react to the HTML DOM",
+    "react-redux": "react hooks for connecting to redux",
     "remark": "convert markdown to HTML",
     "remark-html": "convert markdown to HTML",
     "sass": "CSS extension"
