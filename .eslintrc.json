@@ -4,8 +4,10 @@
         "es2021": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+        "eslint:recommended", //  the recommended eslint rules
+        "plugin:react/recommended", //  react recommended eslint rules
+        "plugin:@typescript-eslint/recommended", //  typescript recommended eslint rules
+        "plugin:prettier/recommended" //  disables rules that interfere with prettier (with eslint-config-prettier) and adds the prettier rules.  See https://github.com/prettier/eslint-plugin-prettier#recommended-configuration for reference
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {

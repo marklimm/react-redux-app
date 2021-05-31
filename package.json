@@ -5,23 +5,34 @@
   "main": "index.js",
   "scripts": {
     "eslint": "./node_modules/.bin/eslint \"*/**/*.{js,ts,tsx}\" --fix",
-    "lint": "npm run eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run eslint && npm run tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "./node_modules/.bin/tsc --noEmit"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^15.6.1",
+    "@types/react": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "typescript": "^4.3.2"
   },
   "devDependenciesComments": {
+    "@types/node": "typescript node types",
+    "@types/react": "typescript react types",
+    "@typescript-eslint/eslint-plugin": "allows eslint to parse typescript files",
+    "@typescript-eslint/parser": "allows eslint to parse typescript files",
     "eslint": "code linting",
     "eslint-config-prettier": "disable the rules that interfere with prettier",
     "eslint-plugin-prettier": "run prettier as an eslint rule.  See https://github.com/prettier/eslint-plugin-prettier#recommended-configuration for reference",
     "eslint-plugin-react": "added by `eslint --init` when I said my project uses react",
-    "prettier": "opinionated code formatting"
+    "prettier": "opinionated code formatting",
+    "typescript": "types for javascript"
   }
 }
