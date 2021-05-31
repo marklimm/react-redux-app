@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import { Post } from 'lib/types/Post'
 import { getSortedMarkdownFiles } from 'lib/markdownParser'
@@ -27,6 +28,10 @@ const DevBlog: FunctionComponent<DevBlogProps> = ({
       <div className='grid grid-cols-3 gap-4 items-start'>
         <div className='col-span-2'>
           <h1>Developer Blog</h1>
+
+          <Link href='/'>
+            <a>Home</a>
+          </Link>
 
           {devBlogPosts.length > 0 &&
             devBlogPosts.map((post) => (

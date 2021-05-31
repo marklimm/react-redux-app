@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react'
-import Link from 'next/link'
 
 import DisplayDate from 'components/DisplayDate/DisplayDate'
 import { Post } from 'lib/types/Post'
@@ -13,11 +12,7 @@ export const DevBlogPost: FunctionComponent<DevBlogPostProps> = ({
 }: DevBlogPostProps) => {
   return (
     <div className='searchResultCard'>
-      <h1 className='text-xl'>
-        <Link href={`/devblog/${devBlogPost.id}`}>
-          <a target='_blank'>{devBlogPost.title}</a>
-        </Link>
-      </h1>
+      <h1 className=' text-lg'>{devBlogPost.title}</h1>
 
       <div className='text-sm text-red-600'>
         <DisplayDate dateString={devBlogPost.date} />
