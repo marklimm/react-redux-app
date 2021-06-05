@@ -1,7 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
 
-import { FoodStandReducer } from './FoodStandReducer'
+import foodStandReducer from './FoodStandReducer'
 
-const FoodStandStore = configureStore({ reducer: FoodStandReducer })
+const reducer = combineReducers({
+  foodStand: foodStandReducer,
+})
+
+const FoodStandStore = configureStore({
+  reducer,
+})
 
 export default FoodStandStore

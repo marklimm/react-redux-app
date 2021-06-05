@@ -12,15 +12,17 @@ import { FriesRow } from 'components/food/FriesRow'
  * @returns
  */
 export const FoodStand: FunctionComponent = () => {
-  const numBurgers = useSelector<FoodStandState>(
-    (state) => state.burgers
-  ) as number
+  const numBurgers = useSelector<FoodStandState>((state) => {
+    return state.foodStand.burgers
+  }) as number
 
   const numHotDogs = useSelector<FoodStandState>(
-    (state) => state.hotdogs
+    (state) => state.foodStand.hotdogs
   ) as number
 
-  const numFries = useSelector<FoodStandState>((state) => state.fries) as number
+  const numFries = useSelector<FoodStandState>(
+    (state) => state.foodStand.fries
+  ) as number
 
   return (
     <div className='flex flex-col'>
@@ -52,7 +54,7 @@ export const FoodStand: FunctionComponent = () => {
         </div>
 
         <div>
-          <span className='font-bold'>{numFries}</span> fry/frie(s) for sale
+          <span className='font-bold'>{numFries}</span> fries for sale
         </div>
       </div>
     </div>
