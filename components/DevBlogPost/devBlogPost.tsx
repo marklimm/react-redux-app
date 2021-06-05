@@ -14,7 +14,7 @@ export const DevBlogPost: FunctionComponent<DevBlogPostProps> = ({
 }: DevBlogPostProps) => {
   return (
     <div className={styles.blogEntry}>
-      <h1 className=' text-lg'>{devBlogPost.title}</h1>
+      <h1 className='text-lg'>{devBlogPost.title}</h1>
 
       <div className='text-sm text-red-600'>
         <DisplayDate dateString={devBlogPost.date} />

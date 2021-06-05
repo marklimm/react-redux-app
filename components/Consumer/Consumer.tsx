@@ -27,9 +27,8 @@ export const Consumer: FunctionComponent = () => {
   }
 
   return (
-    <div className=''>
+    <>
       <h1 className='text-lg font-bold'>Courtney Consumer</h1>
-
       <div className='mb-8'>
         <div className='mt-3'>
           <button
@@ -56,13 +55,12 @@ export const Consumer: FunctionComponent = () => {
           </button>
         </div>
       </div>
-
       <Image
         src={`/images/courtney.png`}
         alt={`Courtney Consumer`}
         width={155}
         height={308}
       />
-    </div>
+    </>
   )
 }

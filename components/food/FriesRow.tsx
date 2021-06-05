@@ -37,7 +37,7 @@ const FriesRowUnMemoized: FunctionComponent<FriesRowUnMemoizedProps> = ({
   )
 }
 
-//  I'm using React.memo() here to ensure that the row of Friess is only re-rendered if there's actually been a change to the number of Friess
+//  I'm using React.memo() here to ensure that the row of Fries is only re-rendered if there's actually been a change to the number of Fries
 export const FriesRow = React.memo(
   FriesRowUnMemoized,
   (prevProps, nextProps) => {
