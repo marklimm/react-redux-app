@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, Dispatch } from '@reduxjs/toolkit'
 
 /**
  * State variables for the FoodStand
@@ -77,5 +77,19 @@ export const {
   sellFries,
   sellHotDog,
 } = foodStandSlice.actions
+
+/**
+ * Demonstrates redux thunk by dispatching the makeBurger() action creator after a delay
+ * @returns
+ */
+export const makeBurgerWithDelay =
+  () =>
+  async (dispatch: Dispatch): void => {
+    console.log('inside makeBurgerWithDelay()')
+    setTimeout(() => {
+      console.log('about to dispatch makeBurger()')
+      dispatch(makeBurger())
+    }, 1000)
+  }
 
 export default foodStandSlice.reducer

@@ -1,7 +1,12 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
-import { makeBurger, makeHotDog, makeFries } from 'redux/FoodStandReducer'
+import {
+  makeBurger,
+  makeHotDog,
+  makeFries,
+  makeBurgerWithDelay,
+} from 'redux/FoodStandReducer'
 
 import styles from 'pages/index.module.scss'
 
@@ -13,7 +18,8 @@ export const Producer: FunctionComponent = () => {
   const dispatch = useDispatch()
 
   const makeBurgerClicked = () => {
-    dispatch(makeBurger())
+    // dispatch(makeBurger())
+    dispatch(makeBurgerWithDelay())
   }
 
   const makeHotDogClicked = () => {
