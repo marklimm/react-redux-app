@@ -10,10 +10,23 @@ import { Producer } from 'components/Producer/Producer'
 
 import FoodStandStore from 'redux/FoodStandStore'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import styles from './index.module.scss'
 
 interface HomePageProps {
   name: string
+}
+
+//  styling the toastr taking cues from https://fkhadra.github.io/react-toastify/how-to-style#css-classes-as-function
+const contextClass = {
+  success: 'bg-green-600',
+  error: 'bg-red-700',
+  info: 'bg-gray-500',
+  // warning: "bg-orange-400",
+  default: 'bg-indigo-600',
+  // dark: "bg-white-600 font-gray-300",
 }
 
 const HomePage: FunctionComponent<HomePageProps> = ({
@@ -50,6 +63,20 @@ const HomePage: FunctionComponent<HomePageProps> = ({
               </div>
             </Provider>
           </div>
+
+          {/* CSS classes taken from https://fkhadra.github.io/react-toastify/how-to-style#css-classes-as-function */}
+          <ToastContainer
+            position='bottom-center'
+            autoClose={3000}
+            hideProgressBar={true}
+            className='w-2/4'
+            // style={{ width: '50%' }}
+
+            toastClassName={({ type }) =>
+              contextClass[type || 'default'] +
+              ' relative flex mt-3 p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
+            }
+          />
         </div>
       </div>
     </>
