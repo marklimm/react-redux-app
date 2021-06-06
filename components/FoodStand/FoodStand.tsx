@@ -58,7 +58,9 @@ export const FoodStand: FunctionComponent = () => {
       </div>
 
       <div className='self-center mt-4'>
-        <h2 className='text-lg font-bold mt-5'>Food Stand Rules:</h2>
+        <h2 className='text-lg font-bold mt-5 text-center'>
+          Food Stand Rules:
+        </h2>
         <ul>
           <li>
             The stand cannot have more than <span className='font-bold'>5</span>{' '}

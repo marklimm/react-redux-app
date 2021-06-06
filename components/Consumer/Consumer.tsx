@@ -29,47 +29,47 @@ export const Consumer: FunctionComponent = () => {
 
   const sellBurgerClicked = () => {
     if (numBurgers === 0) {
-      toast.error(`Out of burgers!  We need to make more!`)
+      toast.error(`Selena: Out of burgers!  We need to make more!`)
       return
     }
 
     dispatch(sellBurger())
 
-    toast.success('Burger sold!')
+    toast.success('Selena: Burger sold!')
   }
 
   const sellHotDogClicked = () => {
     if (numHotDogs === 0) {
-      toast.error(`Out of hot dogs!  We need to make more!`)
+      toast.error(`Selena: Out of hot dogs!  We need to make more!`)
       return
     }
 
     dispatch(sellHotDog())
 
-    toast.success('Hot dog sold!')
+    toast.success('Selena: Hot dog sold!')
   }
 
   const sellFriesClicked = () => {
     if (numFries === 0) {
-      toast.error(`Out of fries!  We need to make more!`)
+      toast.error(`Selena: Out of fries!  We need to make more!`)
       return
     }
 
     dispatch(sellFries())
 
-    toast.success('Fries sold!')
+    toast.success('Selena: Fries sold!')
   }
 
   return (
     <>
-      <h1 className='text-lg font-bold'>Courtney Consumer</h1>
+      <h1 className='text-lg font-bold'>Selena Seller (Consumer)</h1>
       <div className='mb-8'>
         <div className='mt-3'>
           <button
             className={`${styles.actionButton}`}
             onClick={sellBurgerClicked}
           >
-            Buy Burger
+            Sell Burger
           </button>
         </div>
         <div className='mt-3'>
@@ -77,7 +77,7 @@ export const Consumer: FunctionComponent = () => {
             className={`${styles.actionButton}`}
             onClick={sellHotDogClicked}
           >
-            Buy Hot Dog
+            Sell Hot Dog
           </button>
         </div>
         <div className='mt-3'>
@@ -85,13 +85,13 @@ export const Consumer: FunctionComponent = () => {
             className={`${styles.actionButton}`}
             onClick={sellFriesClicked}
           >
-            Buy Fries
+            Sell Fries
           </button>
         </div>
       </div>
       <Image
         src={`/images/courtney.png`}
-        alt={`Courtney Consumer`}
+        alt={`Selena Seller`}
         width={155}
         height={308}
       />
