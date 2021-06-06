@@ -26,7 +26,7 @@ export const FoodStand: FunctionComponent = () => {
 
   return (
     <div className='flex flex-col'>
-      <h1 className='self-center text-lg font-bold'>
+      <h1 className='self-center text-xl font-bold'>
         Welcome to the Food Stand!
       </h1>
 

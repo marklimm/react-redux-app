@@ -41,7 +41,7 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         <meta name='description' content='A demo react-redux website'></meta>
       </Head>
 
-      <div className='flex justify-center '>
+      <div className='mt-32 flex justify-center '>
         <div className={`flex ${styles.whiteBlock}`}>
           {/* use the <Provider /> HOC to allow the Producer, FoodStand and Consumer access to the redux FoodStandStore */}
           <Provider store={FoodStandStore}>
@@ -70,9 +70,7 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         position='bottom-center'
         autoClose={3000}
         hideProgressBar={true}
-        className='w-2/4'
-        // style={{ width: '50%' }}
-
+        style={{ width: '600px' }}
         toastClassName={({ type }) =>
           contextClass[type || 'default'] +
           ' relative flex mt-3 p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
