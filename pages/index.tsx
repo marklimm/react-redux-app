@@ -10,13 +10,15 @@ import { Producer } from 'components/Producer/Producer'
 
 import FoodStandStore from 'redux/FoodStandStore'
 
+import { getMarkdownFileData } from 'lib/markdownParser'
+
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import styles from './index.module.scss'
 
 interface HomePageProps {
-  name: string
+  readmeContent: string
 }
 
 //  styling the toastr taking cues from https://fkhadra.github.io/react-toastify/how-to-style#css-classes-as-function
@@ -30,7 +32,7 @@ const contextClass = {
 }
 
 const HomePage: FunctionComponent<HomePageProps> = ({
-  name,
+  readmeContent,
 }: HomePageProps) => {
   return (
     <>
@@ -39,54 +41,56 @@ const HomePage: FunctionComponent<HomePageProps> = ({
         <meta name='description' content='A demo react-redux website'></meta>
       </Head>
 
-      <div className=''>
-        <div className={`${styles.thisDiv}`}>
-          {name}
-
-          <Link href='/devblog'>
-            <a className={styles.link}>Developer Blog</a>
-          </Link>
-        </div>
-
-        <div className='flex justify-center'>
-          <div className='flex m-8 p-6 rounded-md bg-white' style={{}}>
-            {/* use the <Provider /> HOC to allow the Producer, FoodStand and Consumer access to the redux FoodStandStore */}
-            <Provider store={FoodStandStore}>
-              <div className='pr-4'>
-                <Producer />
-              </div>
-              <div style={{ width: '650px' }}>
-                <FoodStand />
-              </div>
-              <div className='pl-4'>
-                <Consumer />
-              </div>
-            </Provider>
-          </div>
-
-          {/* CSS classes taken from https://fkhadra.github.io/react-toastify/how-to-style#css-classes-as-function */}
-          <ToastContainer
-            position='bottom-center'
-            autoClose={3000}
-            hideProgressBar={true}
-            className='w-2/4'
-            // style={{ width: '50%' }}
-
-            toastClassName={({ type }) =>
-              contextClass[type || 'default'] +
-              ' relative flex mt-3 p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
-            }
-          />
+      <div className='flex justify-center '>
+        <div className={`flex ${styles.whiteBlock}`}>
+          {/* use the <Provider /> HOC to allow the Producer, FoodStand and Consumer access to the redux FoodStandStore */}
+          <Provider store={FoodStandStore}>
+            <div className='pr-4'>
+              <Producer />
+            </div>
+            <div style={{ width: '650px' }}>
+              <FoodStand />
+            </div>
+            <div className='pl-4'>
+              <Consumer />
+            </div>
+          </Provider>
         </div>
       </div>
+
+      <div className='flex justify-center'>
+        <div
+          className={`${styles.markdownContent} ${styles.whiteBlock}`}
+          dangerouslySetInnerHTML={{ __html: readmeContent }}
+        />
+      </div>
+
+      {/* CSS classes taken from https://fkhadra.github.io/react-toastify/how-to-style#css-classes-as-function */}
+      <ToastContainer
+        position='bottom-center'
+        autoClose={3000}
+        hideProgressBar={true}
+        className='w-2/4'
+        // style={{ width: '50%' }}
+
+        toastClassName={({ type }) =>
+          contextClass[type || 'default'] +
+          ' relative flex mt-3 p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
+        }
+      />
     </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+  const readmeData = await getMarkdownFileData(
+    '',
+    'pages/landing-page-intro.md'
+  )
+
   return {
     props: {
-      name: 'Welcome to my react-redux website!  ',
+      readmeContent: readmeData.contentHtml,
     },
   }
 }

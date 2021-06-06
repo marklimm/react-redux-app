@@ -76,6 +76,7 @@
     "react": "javascript HTML rendering library",
     "react-dom": "connect react to the HTML DOM",
     "react-redux": "react hooks for connecting to redux",
+    "react-toastify": "toast messages",
     "remark": "convert markdown to HTML",
     "remark-html": "convert markdown to HTML",
     "sass": "CSS extension"

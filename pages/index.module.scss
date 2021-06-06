@@ -2,3 +2,19 @@
 .actionButton {
   @apply block mt-5 bg-green-600 focus:outline-none p-2 rounded-md text-sm text-white hover:text-green-200
 }
+
+//  styling the markdown content that is converted to HTML
+.markdownContent {
+  h3 {
+    @apply font-bold text-xl
+  }
+
+  p {
+    @apply mt-5
+  }
+}
+
+
+.whiteBlock {
+  @apply m-8 p-6 rounded-md bg-white max-w-screen-xl
+}
