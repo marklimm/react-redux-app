@@ -61,7 +61,7 @@ export const {
  */
 export const makeBurger =
   () =>
-  async (dispatch: Dispatch): void => {
+  async (dispatch: Dispatch): Promise<void> => {
     const makingBurgerToastId = toast.info(
       'Preston:  One burger coming right up!'
     )
@@ -76,7 +76,7 @@ export const makeBurger =
 
 export const makeFries =
   () =>
-  async (dispatch: Dispatch): void => {
+  async (dispatch: Dispatch): Promise<void> => {
     const toastId = toast.info('Preston:  Fries coming up!')
 
     setTimeout(() => {
@@ -89,7 +89,7 @@ export const makeFries =
 
 export const makeHotDog =
   () =>
-  async (dispatch: Dispatch): void => {
+  async (dispatch: Dispatch): Promise<void> => {
     const toastId = toast.info('Preston:  One hot dog coming right up!')
 
     setTimeout(() => {
