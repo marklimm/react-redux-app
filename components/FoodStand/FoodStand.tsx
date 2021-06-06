@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { useSelector } from 'react-redux'
 
-import { FoodStandState } from 'redux/FoodStandReducer'
+import { IFoodStandStore } from 'redux/FoodStandStore'
 
 import { BurgerRow } from 'components/food/BurgerRow'
 import { HotDogRow } from 'components/food/HotDogRow'
@@ -12,15 +12,15 @@ import { FriesRow } from 'components/food/FriesRow'
  * @returns
  */
 export const FoodStand: FunctionComponent = () => {
-  const numBurgers = useSelector<FoodStandState>((state) => {
+  const numBurgers = useSelector<IFoodStandStore>((state) => {
     return state.foodStand.burgers
   }) as number
 
-  const numHotDogs = useSelector<FoodStandState>(
-    (state) => state.foodStand.hotdogs
+  const numHotDogs = useSelector<IFoodStandStore>(
+    (state) => state.foodStand.hotDogs
   ) as number
 
-  const numFries = useSelector<FoodStandState>(
+  const numFries = useSelector<IFoodStandStore>(
     (state) => state.foodStand.fries
   ) as number
 
@@ -30,21 +30,20 @@ export const FoodStand: FunctionComponent = () => {
         Welcome to the Food Stand!
       </h1>
 
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' style={{ minHeight: '70px' }}>
         <BurgerRow numBurgers={numBurgers} />
       </div>
 
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' style={{ minHeight: '70px' }}>
         <HotDogRow numHotDogs={numHotDogs} />
       </div>
 
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap' style={{ minHeight: '70px' }}>
         <FriesRow numFries={numFries} />
       </div>
 
       <div className='self-center'>
-        <h2 className='text-lg font-bold mt-5'>Summary:</h2>
-        <span>The stand has: </span>
+        <h2 className='text-lg font-bold mt-5'>The stand currently has:</h2>
         <div>
           <span className='font-bold'>{numBurgers}</span> burger(s) for sale
         </div>
@@ -56,6 +55,24 @@ export const FoodStand: FunctionComponent = () => {
         <div>
           <span className='font-bold'>{numFries}</span> fries for sale
         </div>
+      </div>
+
+      <div className='self-center mt-4'>
+        <h2 className='text-lg font-bold mt-5'>Food Stand Rules:</h2>
+        <ul>
+          <li>
+            The stand cannot have more than <span className='font-bold'>5</span>{' '}
+            burgers at any given time
+          </li>
+          <li>
+            The stand cannot have more than <span className='font-bold'>7</span>{' '}
+            hot dogs at any given time
+          </li>
+          <li>
+            The stand cannot have more than{' '}
+            <span className='font-bold'>10</span> fries at any given time
+          </li>
+        </ul>
       </div>
     </div>
   )

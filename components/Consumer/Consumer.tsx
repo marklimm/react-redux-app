@@ -1,9 +1,12 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { toast } from 'react-toastify'
 
 import { sellBurger, sellHotDog, sellFries } from 'redux/FoodStandReducer'
+import { IFoodStandStore } from 'redux/FoodStandStore'
 
 import styles from 'pages/index.module.scss'
 
@@ -14,16 +17,47 @@ import styles from 'pages/index.module.scss'
 export const Consumer: FunctionComponent = () => {
   const dispatch = useDispatch()
 
+  const numBurgers = useSelector<IFoodStandStore>((state) => {
+    return state.foodStand.burgers
+  })
+  const numFries = useSelector<IFoodStandStore>(
+    (state) => state.foodStand.fries
+  )
+  const numHotDogs = useSelector<IFoodStandStore>(
+    (state) => state.foodStand.hotDogs
+  )
+
   const sellBurgerClicked = () => {
+    if (numBurgers === 0) {
+      toast.error(`Out of burgers!  We need to make more!`)
+      return
+    }
+
     dispatch(sellBurger())
+
+    toast.success('Burger sold!')
   }
 
   const sellHotDogClicked = () => {
+    if (numHotDogs === 0) {
+      toast.error(`Out of hot dogs!  We need to make more!`)
+      return
+    }
+
     dispatch(sellHotDog())
+
+    toast.success('Hot dog sold!')
   }
 
   const sellFriesClicked = () => {
+    if (numFries === 0) {
+      toast.error(`Out of fries!  We need to make more!`)
+      return
+    }
+
     dispatch(sellFries())
+
+    toast.success('Fries sold!')
   }
 
   return (

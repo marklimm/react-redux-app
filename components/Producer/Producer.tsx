@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react'
 import Image from 'next/image'
-import { useDispatch } from 'react-redux'
-import {
-  makeBurger,
-  makeHotDog,
-  makeFries,
-  makeBurgerWithDelay,
-} from 'redux/FoodStandReducer'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { toast } from 'react-toastify'
+
+import { makeBurger, makeHotDog, makeFries } from 'redux/FoodStandReducer'
+import { IFoodStandStore } from 'redux/FoodStandStore'
 
 import styles from 'pages/index.module.scss'
 
@@ -17,16 +16,46 @@ import styles from 'pages/index.module.scss'
 export const Producer: FunctionComponent = () => {
   const dispatch = useDispatch()
 
+  const numBurgers = useSelector<IFoodStandStore>((state) => {
+    return state.foodStand.burgers
+  })
+  const numFries = useSelector<IFoodStandStore>(
+    (state) => state.foodStand.fries
+  )
+  const numHotDogs = useSelector<IFoodStandStore>(
+    (state) => state.foodStand.hotDogs
+  )
+
   const makeBurgerClicked = () => {
-    // dispatch(makeBurger())
-    dispatch(makeBurgerWithDelay())
+    if (numBurgers >= 5) {
+      toast.error(
+        `Preston: We're at our burger limit, we need to sell more before I can make another one!`
+      )
+      return
+    }
+
+    dispatch(makeBurger())
   }
 
   const makeHotDogClicked = () => {
+    if (numHotDogs >= 7) {
+      toast.error(
+        `Preston: We're at our hot dogs limit, we need to sell more before I can make another one!`
+      )
+      return
+    }
+
     dispatch(makeHotDog())
   }
 
   const makeFriesClicked = () => {
+    if (numFries >= 10) {
+      toast.error(
+        `Preston: We're at our fries limit, we need to sell more before I can make another one!`
+      )
+      return
+    }
+
     dispatch(makeFries())
   }
 

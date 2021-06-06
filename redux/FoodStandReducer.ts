@@ -1,17 +1,18 @@
 import { createSlice, Dispatch } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify'
 
 /**
  * State variables for the FoodStand
  */
 export interface FoodStandState {
   burgers: number
-  hotdogs: number
+  hotDogs: number
   fries: number
 }
 
 const initialState: FoodStandState = {
   burgers: 2,
-  hotdogs: 3,
+  hotDogs: 3,
   fries: 4,
 }
 
@@ -19,77 +20,84 @@ const foodStandSlice = createSlice({
   name: 'foodStand',
   initialState,
   reducers: {
-    makeBurger(state) {
-      if (state.burgers === 10) {
-        return
-      }
-
+    addBurger(state) {
       state.burgers += 1
     },
 
-    makeFries(state) {
-      if (state.fries === 10) {
-        return
-      }
-
+    addFries(state) {
       state.fries += 1
     },
 
-    makeHotDog(state) {
-      if (state.hotdogs === 10) {
-        return
-      }
-
-      state.hotdogs += 1
+    addHotDog(state) {
+      state.hotDogs += 1
     },
 
     sellBurger(state) {
-      if (state.burgers === 0) {
-        return
-      }
-
       state.burgers -= 1
     },
 
     sellFries(state) {
-      if (state.fries === 0) {
-        return
-      }
-
       state.fries -= 1
     },
 
     sellHotDog(state) {
-      if (state.hotdogs === 0) {
-        return
-      }
-
-      state.hotdogs -= 1
+      state.hotDogs -= 1
     },
   },
 })
 
 export const {
-  makeBurger,
-  makeFries,
-  makeHotDog,
+  addBurger,
+  addFries,
+  addHotDog,
   sellBurger,
   sellFries,
   sellHotDog,
 } = foodStandSlice.actions
 
 /**
- * Demonstrates redux thunk by dispatching the makeBurger() action creator after a delay
+ * Demonstrates redux thunk by dispatching the addBurger() action creator after a delay
  * @returns
  */
-export const makeBurgerWithDelay =
+export const makeBurger =
   () =>
   async (dispatch: Dispatch): void => {
-    console.log('inside makeBurgerWithDelay()')
+    const makingBurgerToastId = toast.info(
+      'Preston:  One burger coming right up!'
+    )
+
     setTimeout(() => {
-      console.log('about to dispatch makeBurger()')
-      dispatch(makeBurger())
-    }, 1000)
+      dispatch(addBurger())
+
+      toast.dismiss(makingBurgerToastId)
+      toast.success('Preston:  Burger is done!')
+    }, 1500)
+  }
+
+export const makeFries =
+  () =>
+  async (dispatch: Dispatch): void => {
+    const toastId = toast.info('Preston:  Fries coming up!')
+
+    setTimeout(() => {
+      dispatch(addFries())
+
+      toast.dismiss(toastId)
+      toast.success('Preston:  Fries are done!')
+    }, 700)
+  }
+
+export const makeHotDog =
+  () =>
+  async (dispatch: Dispatch): void => {
+    const toastId = toast.info('Preston:  One hot dog coming right up!')
+
+    setTimeout(() => {
+      dispatch(addHotDog())
+
+      toast.dismiss(toastId)
+      toast.success('Preston:  Hot dog is done!')
+    }, 900)
   }
 
 export default foodStandSlice.reducer
