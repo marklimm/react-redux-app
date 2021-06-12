@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import { Provider } from 'react-redux'
 
 import { Consumer } from 'components/Consumer/Consumer'
